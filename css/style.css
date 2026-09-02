@@ -1,0 +1,558 @@
+/* ========================================== */
+/* H1 DISTRICT 1: GLOBAL SYSTEM VARIABLES     */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 1.1 RESET & NORMALIZATION               */
+/* ------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------ */
+/* H2 1.2 COLOR PALETTE (THE ROOT)            */
+/* ------------------------------------------ */
+:root {
+    --color-bg-master: #f5f5f7; 
+    --color-glass-panel: rgba(255, 255, 255, 0.7); 
+    --color-glass-border: rgba(0, 0, 0, 0.08); 
+    --color-text-primary: #1d1d1f; 
+    --color-text-muted: #86868b; 
+
+    --color-accent-sanctuary: #00838f; 
+    --color-accent-sensei: #7b1fa2;    
+    --color-accent-compass: #2e7d32;   
+    --color-accent-unbroken: #b71c1c;  
+    --color-accent-epic: #0d47a1;      
+    --color-accent-bass: #00bfa5;      
+    --color-accent-alma: #e65100;      
+}
+
+/* ------------------------------------------ */
+/* H2 1.3 DOCUMENT BODY SETTINGS              */
+/* ------------------------------------------ */
+body {
+    background-color: var(--color-bg-master);
+    color: var(--color-text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========================================== */
+/* H1 DISTRICT 2: NAVIGATION & HEADER         */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 2.1 STICKY GLASS HEADER                 */
+/* ------------------------------------------ */
+.global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background-color: var(--color-glass-panel);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-glass-border);
+    z-index: 1000;
+}
+
+/* ------------------------------------------ */
+/* H2 2.2 LOGO & BUTTONS                      */
+/* ------------------------------------------ */
+#brand-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#brand-logo:hover {
+    color: var(--color-accent-bass);
+}
+
+.btn-login {
+    text-decoration: none;
+    color: var(--color-text-primary);
+    padding: 10px 24px;
+    border: 1px solid var(--color-text-primary);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-master);
+}
+
+/* ========================================== */
+/* H1 DISTRICT 3: HERO COMPONENT              */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 3.1 HERO LAYOUT                         */
+/* ------------------------------------------ */
+#hero {
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+    background: linear-gradient(to bottom, rgba(245, 245, 247, 0.2), var(--color-bg-master));
+}
+
+/* ------------------------------------------ */
+/* H2 3.2 HERO TYPOGRAPHY                     */
+/* ------------------------------------------ */
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    letter-spacing: 1px;
+}
+
+/* ========================================== */
+/* H1 DISTRICT 4: BENTO GRID SYSTEM           */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 4.1 MAIN GRID CONTAINER                 */
+/* ------------------------------------------ */
+#bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------ */
+/* H2 4.2 BASE CARD STYLING                   */
+/* ------------------------------------------ */
+.district-card {
+    background-color: var(--color-glass-panel);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    min-height: 250px;
+}
+
+.district-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.district-card a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+}
+
+.district-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.district-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* ------------------------------------------ */
+/* H2 4.3 GRID ASYMMETRY CONFIGURATION        */
+/* ------------------------------------------ */
+#card-sanctuary { grid-column: span 6; }
+#card-sensei    { grid-column: span 6; }
+#card-compass   { grid-column: span 4; }
+#card-unbroken  { grid-column: span 4; }
+#card-epic      { grid-column: span 4; }
+#card-bass      { grid-column: span 8; }
+#card-alma      { grid-column: span 4; }
+
+/* ------------------------------------------ */
+/* H2 4.4 CARD HOVER STATES (THE HOOKS)       */
+/* ------------------------------------------ */
+#card-sanctuary:hover { border-color: var(--color-accent-sanctuary); }
+#card-sensei:hover { border-color: var(--color-accent-sensei); }
+#card-compass:hover { border-color: var(--color-accent-compass); }
+#card-unbroken:hover { border-color: var(--color-accent-unbroken); }
+#card-epic:hover { border-color: var(--color-accent-epic); }
+#card-bass:hover { border-color: var(--color-accent-bass); }
+#card-alma:hover { border-color: var(--color-accent-alma); }
+
+/* ========================================== */
+/* H1 DISTRICT 5: FOOTER SECTION              */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 5.1 FOOTER LAYOUT                       */
+/* ------------------------------------------ */
+footer {
+    width: 100%;
+    padding: 40px 5%;
+    border-top: 1px solid var(--color-glass-border);
+    background-color: var(--color-bg-master);
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-text-primary);
+}
+
+/* ========================================== */
+/* H1 DISTRICT 6: RESPONSIVE QUERIES          */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 6.1 MOBILE DEVICES (MAX 768PX)          */
+/* ------------------------------------------ */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+    
+    #card-sanctuary, #card-sensei, #card-compass,
+    #card-unbroken, #card-epic, #card-bass, #card-alma {
+        grid-column: span 12;
+    }
+    .global-header { padding: 0 20px; }
+}
+
+/* ========================================== */
+/* H1 DISTRICT 7: JAVASCRIPT SYSTEM STATES    */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 7.1 CYBER MODE (EASTER EGG)             */
+/* ------------------------------------------ */
+body.cyber-mode {
+    --color-bg-master: #020b08;
+    --color-text-primary: #00ffcc;
+    --color-glass-panel: rgba(0, 0, 0, 0.8);
+    --color-glass-border: rgba(0, 255, 204, 0.3);
+}
+
+/* ========================================== */
+/* H1 DISTRICT 8: INTERNAL DISTRICT PAGES     */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 8.1 INTERNAL HEADER & NAVIGATION        */
+/* ------------------------------------------ */
+.district-header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    background-color: var(--color-glass-panel); /* Adjusted for overlay visibility */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-glass-border);
+}
+
+/* ------------------------------------------ */
+/* H2 8.2 INTERNAL TYPOGRAPHY                 */
+/* ------------------------------------------ */
+.text-center { text-align: center; }
+.district-title { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+.district-subtitle { color: var(--color-text-muted); margin-bottom: 40px; }
+
+/* ------------------------------------------ */
+/* H2 8.3 INTERNAL LAYOUT (MOCKUPS & GRIDS)   */
+/* ------------------------------------------ */
+.district-container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+.district-section { margin-bottom: 60px; }
+.section-title { font-size: 2rem; margin-bottom: 20px; color: var(--color-text-primary); border-bottom: 1px solid var(--color-glass-border); padding-bottom: 10px; }
+.mockup-box { border: 1px dashed var(--color-text-muted); padding: 40px; color: var(--color-text-primary); background-color: var(--color-glass-panel); border-radius: 8px; text-align: center; }
+.district-footer { color: var(--color-text-muted); text-align: center; padding: 40px; border-top: 1px solid var(--color-glass-border); background-color: var(--color-glass-panel); }
+
+/* ========================================== */
+/* H1 DISTRICT 9: DYNAMIC UTILITY CLASSES     */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 9.1 GRID SYSTEMS                        */
+/* ------------------------------------------ */
+.grid-2-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+/* ------------------------------------------ */
+/* H2 9.2 DYNAMIC TITLE COLORS                */
+/* ------------------------------------------ */
+.title-sanctuary { color: var(--color-accent-sanctuary); }
+.title-sensei { color: var(--color-accent-sensei); }
+.title-compass { color: var(--color-accent-compass); }
+
+/* ------------------------------------------ */
+/* H2 9.3 MOBILE GRID OVERRIDES               */
+/* ------------------------------------------ */
+@media (max-width: 768px) {
+    .grid-2-cols, .grid-3-cols { grid-template-columns: 1fr; }
+}
+
+/* ========================================== */
+/* H1 DISTRICT 10: ANIMATIONS & COMPONENTS    */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 10.1 LIVE PULSE INDICATOR               */
+/* ------------------------------------------ */
+.live-indicator { display: inline-block; width: 12px; height: 12px; background-color: var(--color-accent-unbroken); border-radius: 50%; margin-left: 15px; animation: pulse 1.5s infinite; }
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(183, 28, 28, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(183, 28, 28, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(183, 28, 28, 0); }
+}
+
+/* ------------------------------------------ */
+/* H2 10.2 TELEMETRY PROGRESS BARS            */
+/* ------------------------------------------ */
+.telemetry-bar-container { width: 100%; height: 6px; background-color: var(--color-glass-border); border-radius: 4px; margin-top: 15px; overflow: hidden; }
+.telemetry-bar-fill { height: 100%; background-color: var(--color-accent-compass); width: 0%; transition: width 0.5s ease; }
+
+/* ========================================== */
+/* H1 DISTRICT 11: DASHBOARD COMPONENTS       */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 11.1 VEHICLE DYNAMICS GRID              */
+/* ------------------------------------------ */
+.telemetry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 25px 0; text-align: left; }
+.metric-box { background-color: rgba(0, 0, 0, 0.03); border: 1px solid var(--color-glass-border); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; }
+.metric-label { font-size: 0.75rem; color: var(--color-text-muted); letter-spacing: 1px; margin-bottom: 4px; }
+.metric-value { font-size: 1.4rem; font-weight: 700; color: var(--color-text-primary); }
+.mode-active { color: var(--color-accent-compass); }
+.gps-coords { font-size: 0.85rem; color: var(--color-text-muted); border-top: 1px dashed var(--color-glass-border); padding-top: 15px; }
+
+/* ========================================== */
+/* H1 DISTRICT 12: JEEP 4xe DIGITAL CLUSTER   */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 12.1 CLUSTER BEZEL (HARDWARE FRAME)     */
+/* ------------------------------------------ */
+.cluster-bezel {
+    background: linear-gradient(145deg, rgba(230,230,230,0.8), rgba(255,255,255,0.8));
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05), -5px -5px 15px rgba(255,255,255,0.8);
+    border: 1px solid var(--color-glass-border);
+    backdrop-filter: blur(10px);
+}
+
+/* ------------------------------------------ */
+/* H2 12.2 OLED SCREEN DISPLAY                */
+/* ------------------------------------------ */
+.cluster-screen {
+    background: #1b2028; /* Technical Slate Gray */
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px; /* Increased slightly to prevent vertical crowding */
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ------------------------------------------ */
+/* H2 12.3 HUD TYPOGRAPHY & LAYOUT            */
+/* ------------------------------------------ */
+.cluster-hud-top, .cluster-hud-bottom { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid rgba(255,255,255,0.08); 
+    padding-bottom: 8px; 
+    width: 100%;
+}
+
+.cluster-hud-bottom { 
+    border-bottom: none; 
+    border-top: 1px solid rgba(255,255,255,0.08); 
+    padding-top: 8px; 
+    padding-bottom: 0; 
+}
+
+.badge-4xe { 
+    color: #00e5ff; 
+    font-weight: 800; 
+    letter-spacing: 2px; 
+    font-size: 0.75rem; 
+    border: 1px solid #00e5ff; 
+    padding: 2px 8px; 
+    border-radius: 4px; 
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.5); 
+}
+
+.gps-coords { 
+    color: #697087; 
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 0.75rem; 
+}
+
+/* ------------------------------------------ */
+/* H2 12.4 CENTER DIALS & GAUGES              */
+/* ------------------------------------------ */
+.cluster-hud-center { 
+    display: flex; 
+    justify-content: space-between; /* Changed from space-around to prevent overlapping */
+    align-items: center; 
+    flex-grow: 1; 
+    padding: 15px 10px; 
+    width: 100%;
+}
+
+.hud-gauge { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    flex: 1; /* Ensures equal distribution of space */
+}
+
+.digital-text { 
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bold; 
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(255,255,255,0.3); 
+}
+
+.gauge-value { 
+    font-size: 1.6rem; /* Optimized size to fit seamlessly */
+    margin: 4px 0; 
+}
+
+.highlight-cyan { 
+    color: #00e5ff; 
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6); 
+    font-size: 2.2rem; 
+}
+
+.gauge-label { 
+    color: #697087; 
+    font-size: 0.65rem; 
+    letter-spacing: 1px; 
+}
+
+.center-dial { 
+    position: relative; 
+    padding: 15px; 
+    border: 1px solid rgba(0, 229, 255, 0.2); 
+    border-radius: 50%; 
+    box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.05); 
+}
+
+.dial-compass-points { 
+    position: absolute; 
+    top: 3px; 
+    font-size: 0.55rem; 
+    color: #697087; 
+    letter-spacing: 3px; 
+}
+
+/* ------------------------------------------ */
+/* H2 12.5 TERRAIN & CLIMATE MODULES          */
+/* ------------------------------------------ */
+.active-mode { 
+    color: #00ff88; 
+    font-weight: bold; 
+    letter-spacing: 1px; 
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5); 
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 0.85rem;
+}
+
+.status-alert { 
+    color: #ff3366; 
+    font-weight: bold; 
+    font-family: 'Courier New', Courier, monospace; 
+    text-shadow: 0 0 10px rgba(255, 51, 102, 0.5); 
+    font-size: 0.85rem;
+}
+
+.climate-center { 
+    justify-content: space-around; 
+}
+
+.unit { 
+    font-size: 0.9rem; 
+    color: #697087; 
+}
+
+.cluster-bar { 
+    background-color: #1a1c23; 
+    border: 1px solid #2a2d39; 
+    margin: 0 0 10px 0; 
+}
+
+.cyan-fill { 
+    background-color: #00e5ff; 
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.8); 
+}
+/* ========================================== */
+/* H1 DISTRICT 13: SPECIFIC PAGE BACKGROUNDS  */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 13.1 DISTRICT 3: COMPASS BACKGROUND     */
+/* ------------------------------------------ */
+/* Applies an off-road background exclusively to District 3.
+   Uses a gradient overlay to ensure the UI remains fully readable. */
+.district-compass-bg {
+    background-image: linear-gradient(rgba(245, 245, 247, 0.85), rgba(245, 245, 247, 0.95)), url('https://images.unsplash.com/photo-1559400263-547c1b8eb520?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect when scrolling */
+    background-repeat: no-repeat;
+}

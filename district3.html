@@ -1,0 +1,204 @@
+<!-- ========================================== -->
+<!-- H1 DISTRICT 1: CORE DOCUMENT SETUP         -->
+<!-- ========================================== -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ------------------------------------------ -->
+<!-- H2 1.1 DOCUMENT METADATA                   -->
+<!-- ------------------------------------------ -->
+<head>
+    <!-- Defines character encoding for rendering text correctly -->
+    <meta charset="UTF-8">
+    <!-- Ensures proper scaling on mobile and tablet devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quartier Society | District 3: Quartier Compass</title>
+
+    <!-- Connects the HTML structure to the central CSS mixer -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- ========================================== -->
+<!-- H1 DISTRICT 2: COMPASS ECOSYSTEM           -->
+<!-- ========================================== -->
+<!-- Added specific class to hook the static off-road background image -->
+<body class="district-compass-bg">
+
+<!-- ------------------------------------------ -->
+<!-- H2 2.1 LOCAL NAVIGATION HEADER             -->
+<!-- ------------------------------------------ -->
+    <!-- Specific header ensuring a safe return to the main hub -->
+    <header class="district-header">
+        <nav>
+            <a href="index.html" class="btn-login">&larr; Return to Headquarters</a>
+        </nav>
+    </header>
+
+<!-- ------------------------------------------ -->
+<!-- H2 2.2 MAIN CONTENT CONTAINER              -->
+<!-- ------------------------------------------ -->
+    <!-- Main wrapper that centers the content and applies global padding -->
+    <main class="district-container">
+        
+        <!-- ------------------------------------------ -->
+        <!-- H3 2.2.1 HERO MODULE (THE OFFROAD INTRO)   -->
+        <!-- ------------------------------------------ -->
+        <!-- Center-aligned intro specific to District 3 -->
+        <section id="compass-hero" class="district-section text-center">
+            <h1 class="district-title title-compass">THE COMPASS</h1>
+            <p class="district-subtitle">Nature, Exploration, Hip-Hop Storytelling. Engage 4x4.</p>
+        </section>
+
+        <!-- ------------------------------------------ -->
+        <!-- H3 2.2.2 TELEMETRY & WEATHER MODULE        -->
+        <!-- ------------------------------------------ -->
+        <!-- Advanced Dashboard interface mimicking a 2025 Jeep 4xe TFT Cluster -->
+        <section id="telemetry-dashboard" class="district-section">
+            
+            <h2 class="section-title">
+                Expedition Telemetry 
+                <span class="live-indicator"></span>
+            </h2>
+            
+            <!-- Splitting the dashboard into 2 main physical screens -->
+            <div class="grid-2-cols">
+                
+                <!-- ------------------------------------------ -->
+                <!-- H4 2.2.2.1 LEFT SCREEN: DYNAMICS CLUSTER   -->
+                <!-- ------------------------------------------ -->
+                <!-- The physical bezel wrapping the digital screen -->
+                <article class="cluster-bezel">
+                    <!-- The actual OLED screen displaying the data -->
+                    <div class="cluster-screen">
+                        
+                        <!-- Top HUD Bar: Badging and system status -->
+                        <div class="cluster-hud-top">
+                            <span class="badge-4xe">4xe HYBRID</span>
+                            <span class="gps-coords">SAT LOCK: <span id="live-lat">45.94320</span>, <span id="live-long">24.96680</span></span>
+                        </div>
+
+                        <!-- Center HUD: The main dials and telemetry -->
+                        <div class="cluster-hud-center">
+                            
+                            <!-- Left Gauge: Pitch -->
+                            <div class="hud-gauge side-gauge">
+                                <span class="gauge-label">PITCH</span>
+                                <span id="live-pitch" class="gauge-value digital-text">+13°</span>
+                            </div>
+
+                            <!-- Center Circular Dial: Heading -->
+                            <div class="hud-gauge center-dial">
+                                <span class="dial-compass-points">N &nbsp; E &nbsp; W &nbsp; S</span>
+                                <span id="live-heading" class="gauge-value digital-text highlight-cyan">342°</span>
+                                <span class="gauge-label">HEADING</span>
+                            </div>
+
+                            <!-- Right Gauge: Roll -->
+                            <div class="hud-gauge side-gauge">
+                                <span class="gauge-label">ROLL</span>
+                                <span id="live-roll" class="gauge-value digital-text">-4°</span>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom HUD Bar: Drive modes -->
+                        <div class="cluster-hud-bottom">
+                            <span class="gauge-label">SELEC-TERRAIN:</span>
+                            <span class="terrain-mode active-mode">SAND/MUD 4WD HIGH</span>
+                        </div>
+
+                    </div>
+                </article>
+                
+                <!-- ------------------------------------------ -->
+                <!-- H4 2.2.2.2 RIGHT SCREEN: CLIMATE & STATUS  -->
+                <!-- ------------------------------------------ -->
+                <!-- Secondary infotainment screen for weather -->
+                <article class="cluster-bezel">
+                    <div class="cluster-screen secondary-screen">
+                        
+                        <div class="cluster-hud-top">
+                            <span class="badge-4xe">ATMOSPHERE CORE</span>
+                        </div>
+
+                        <div class="cluster-hud-center climate-center">
+                            <div class="hud-gauge">
+                                <span class="gauge-label">EXT TEMP</span>
+                                <span id="live-temp" class="gauge-value digital-text">14.5</span><span class="unit">°C</span>
+                            </div>
+                            
+                            <div class="hud-gauge">
+                                <span class="gauge-label">HUMIDITY</span>
+                                <span id="live-hum" class="gauge-value digital-text">77</span><span class="unit">%</span>
+                            </div>
+                        </div>
+
+                        <!-- The progress bar representing humidity/rain probability -->
+                        <div class="telemetry-bar-container cluster-bar">
+                            <div id="humidity-bar" class="telemetry-bar-fill cyan-fill"></div>
+                        </div>
+                        
+                        <div class="cluster-hud-bottom">
+                            <span class="gauge-label">SYSTEM ALERT:</span>
+                            <span id="live-status" class="status-alert">SCANNING RADAR...</span>
+                        </div>
+
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+
+        <!-- ------------------------------------------ -->
+        <!-- H3 2.2.3 ROADTRIP AUDIO ENGINE             -->
+        <!-- ------------------------------------------ -->
+        <section id="compass-audio" class="district-section">
+            <h2 class="section-title">Caspian & Roman Audio Log</h2>
+            <div class="audio-player-mockup mockup-box">
+                [AUDIO ENGINE OFFLINE - WAITING FOR ASSETS]
+            </div>
+        </section>
+
+        <!-- ------------------------------------------ -->
+        <!-- H3 2.2.4 EXPEDITION LOGS (THE ARCHIVE)     -->
+        <!-- ------------------------------------------ -->
+        <section id="expedition-logs" class="district-section">
+            <h2 class="section-title">Field Notes</h2>
+            <div class="grid-3-cols">
+                <article class="blog-card district-card" style="padding: 30px;">
+                    <h3>Off-Grid Production</h3>
+                    <p>Powering your MPC and synths directly from a Jeep Compass battery.</p>
+                </article>
+                <article class="blog-card district-card" style="padding: 30px;">
+                    <h3>The Art of Storytelling</h3>
+                    <p>Translating the wilderness into lyrical cadences.</p>
+                </article>
+                <article class="blog-card district-card" style="padding: 30px;">
+                    <h3>Navigating the Unknown</h3>
+                    <p>Analog compass reading when satellite connection fails.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ------------------------------------------ -->
+        <!-- H3 2.2.5 SURVIVAL & TACTICAL GEAR          -->
+        <!-- ------------------------------------------ -->
+        <section id="tactical-gear" class="district-section">
+            <h2 class="section-title">Expedition Armory</h2>
+            <div id="dynamic-store" class="grid-3-cols">
+                <!-- Products will be generated dynamically by main.js -->
+            </div>
+        </section>
+
+    </main>
+
+<!-- ========================================== -->
+<!-- H1 DISTRICT 3: LOCAL FOOTER                -->
+<!-- ========================================== -->
+    <footer class="district-footer">
+        <p>&copy; 2026 Quartier Society. District 3.</p>
+    </footer>  
+
+    <script src="js/main.js"></script>
+</body>
+</html>

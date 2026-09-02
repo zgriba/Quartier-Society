@@ -1,0 +1,141 @@
+<!-- ========================================== -->
+<!-- H1 DISTRICT 1: CORE DOCUMENT SETUP         -->
+<!-- ========================================== -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ------------------------------------------ -->
+<!-- H2 1.1 DOCUMENT METADATA & ROUTING         -->
+<!-- ------------------------------------------ -->
+<head>
+    <!-- Defines character encoding for global character support -->
+    <meta charset="UTF-8">
+    <!-- Ensures proper scaling on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quartier Society | Headquarters</title>
+
+    <!-- Connects the HTML structure to the CSS visual engine -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- ========================================== -->
+<!-- H1 DISTRICT 2: GLOBAL INTERFACE            -->
+<!-- ========================================== -->
+<body>
+    
+<!-- ------------------------------------------ -->
+<!-- H2 2.1 NAVIGATION BAR (GLASS HEADER)       -->
+<!-- ------------------------------------------ -->
+    <!-- The main header that remains fixed at the top of the viewport -->
+    <header class="global-header">
+        
+        <!-- Interactive logo container used to trigger system overrides -->
+         <div id="logo-container">
+            <span id="brand-logo">Quartier Society</span>   
+         </div>
+         
+         <!-- Primary navigation routes -->
+         <nav>
+            <a href="#login" id="login-trigger" class="btn-login">Enter the Grid</a>
+         </nav>
+    </header>
+
+<!-- ========================================== -->
+<!-- H1 DISTRICT 3: THE ECOSYSTEM CONTENT       -->
+<!-- ========================================== -->
+    <!-- Main wrapper for all semantic page content -->
+    <main>
+        
+<!-- ------------------------------------------ -->
+<!-- H2 3.1 HERO SECTION (THE HOOK)             -->
+<!-- ------------------------------------------ -->
+        <!-- Full viewport height section acting as the entry point -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>CHOOSE YOUR DISTRICT</h1>
+                <p id="hero-subtitle">Welcome to Quartier Society. Select your frequency.</p>
+            </div>
+        </section>
+
+<!-- ------------------------------------------ -->
+<!-- H2 3.2 ASYMMETRIC BENTO GRID               -->
+<!-- ------------------------------------------ -->
+        <!-- Grid layout container organizing all available districts -->
+        <section id="bento-grid">
+            
+            <!-- Row 1: 50/50 Layout -->
+            <article class="district-card" id="card-sanctuary">
+                <a href="district1.html">
+                    <h2>District 1: Quartier Sanctuary</h2>
+                    <p>Silence, Yoga, Meditation</p>
+                </a>
+            </article>
+
+            <article class="district-card" id="card-sensei">
+                <a href="district2.html">
+                    <h2>District 2: Quartier Vibe</h2>
+                    <p>Deep Focus, Programming, Lo-Fi</p>
+                </a>
+            </article>
+
+            <!-- Row 2: 33/33/33 Layout -->
+            <article class="district-card" id="card-compass">
+                <a href="district3.html">
+                    <h2>District 3: Quartier Compass</h2>
+                    <p>Nature, Exploration, Hip-Hop Storytelling</p>
+                </a>
+            </article>
+
+            <article class="district-card" id="card-unbroken">
+                <a href="district4.html">
+                    <h2>District 4: Quartier Unbroken</h2>
+                    <p>Strength, Discipline, Drill</p>
+                </a>
+            </article>
+
+            <article class="district-card" id="card-epic">
+                <a href="district5.html">
+                    <h2>District 5: Quartier Epic</h2>
+                    <p>Monumental, IMAX, Orchestral</p>
+                </a>
+            </article>
+
+            <!-- Row 3: 66/33 Layout -->
+            <article class="district-card" id="card-bass">
+                <a href="district6.html">
+                    <h2>District 6: Quartier Bass</h2>
+                    <p>Industrial, Cyberpunk, Adrenaline</p>
+                </a>
+            </article>
+
+            <article class="district-card" id="card-alma">
+                <a href="district7.html">
+                    <h2>District 7: Quartier Alma</h2>
+                    <p>Latin Soul, Bachata, Passion</p>
+                </a>
+            </article>
+            
+        </section>
+    </main>
+
+<!-- ========================================== -->
+<!-- H1 DISTRICT 4: DOCUMENT FOOTER             -->
+<!-- ========================================== -->
+<!-- ------------------------------------------ -->
+<!-- H2 4.1 LEGAL AND LINKS                     -->
+<!-- ------------------------------------------ -->
+    <!-- Contains copyright information and secondary navigation -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Quartier Society. All rights reserved.</p>
+            <nav class="footer-links">
+                <a href="#impressum">Impressum</a>
+                <a href="#privacy">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+    
+    <!-- Connects the JavaScript logic engine to the HTML -->
+    <script src="js/main.js"></script>
+</body>
+</html>

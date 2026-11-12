@@ -1,0 +1,121 @@
+/* ------------------------------------------ */
+/* H2 4.1 HEADER CONTAINER                    */
+/* ------------------------------------------ */
+/* Forces the <nav> tag to respect the screen width so the <ul> inside can trigger its scrollbar */
+.district-header nav {
+    width: 100%;
+}
+.district-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(137, 137, 175, 0.2);
+    backdrop-filter: blur(30px); 
+    border-bottom: 1px solid var(--color-glass-iron);
+    z-index: 100;
+}
+/* ------------------------------------------ */
+/* H2 4.2 FLEXBOX ROUTING (DESKTOP & MOBILE)  */
+/* ------------------------------------------ */
+.district-nav {
+    list-style: none; 
+    padding: 10px 0; /* Updated for scrollbar space */
+    margin: 0;
+    gap: 15px; /* Reduced gap for button layout */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns buttons to the left */
+    flex-wrap: nowrap; /* Forces elements on a single line */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    width: 100%;
+}
+/* Forces the list items to maintain their physical shape and not compress */
+.district-nav li {
+    flex-shrink: 0; 
+}
+
+/* Customizing the scrollbar for Desktop (so mouse users can see it) */
+.district-nav::-webkit-scrollbar {
+    height: 6px; /* Thin scrollbar */
+}
+.district-nav::-webkit-scrollbar-track {
+    background: transparent; 
+}
+.district-nav::-webkit-scrollbar-thumb {
+    background: #8989a3; 
+    border-radius: 10px;
+}
+.district-nav::-webkit-scrollbar-thumb:hover {
+    background: #b9b9c0; 
+}
+
+/* ------------------------------------------ */
+/* H2 4.3 ANCHOR TYPOGRAPHY & BUTTON STATES   */
+/* ------------------------------------------ */
+.district-nav a {
+    background-color: #717e9656;
+    text-decoration: none;
+    color: #141436;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--color-bg-slate);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    white-space: nowrap; /* Prevents text breaking */
+    transition: all 0.3s ease;
+}
+
+.district-nav a:hover {
+    background-color: var(--color-glass-border);
+    color: var(--color-glass-iron);
+    transform: scale(1.05); /* Slight pop effect */
+}
+
+body {
+/* Creates a washed-out concrete texture using lighter grey values */
+    background: linear-gradient( #e9e4d6b0 25%, #a19e94af 100%);
+    background-attachment: fixed; 
+}
+
+
+.newspaper {
+  font-size: 16px;
+  font-family: 'Times New Roman', serif;
+}
+.date {
+    text-align: center;
+}
+.name {
+  text-align: center;  
+  font-size: 65px;
+  font-family: 'Times New Roman', serif;
+  text-transform: uppercase;
+}
+.author {
+  text-align: end;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.headline {
+  font-size: 36px;
+  font-weight: bold;
+}
+.sub-headline {
+  font-weight: 100;
+  font-size: 1.5em;
+  font-style: italic;
+}
+.text {
+  text-indent: 20px;
+  line-height: 2em;
+}
+.text::first-letter {
+  font-weight: bold;
+  font-size: 2em;
+}

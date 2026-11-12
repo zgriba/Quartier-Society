@@ -10,15 +10,55 @@ const modalOverlay = document.getElementById('modal-overlay');
 const modalTitle = document.getElementById('modal-exercise-title');
 const closeButton = document.getElementById('btn-close-modal');
 const modalBodyText = document.querySelector('.modal-body p');
-const bgAudio = document.getElementById('district-audio'); 
+const bgAudio = document.getElementById('district-audio');
 const btnAudioToggle = document.getElementById('btn-audio-toggle');
 const volumeSlider = document.getElementById('audio-volume');
 // ------------------------------------------
 // H2 4.2 MODAL FUNCTIONS (THE MACROS)
 // ------------------------------------------
+
+// 1. SELECT THE DOM ELEMENTS (Cablarea hardware-ului la software)
+const btnOpen = document.getElementById('btn-open-workout');
+const btnClose = document.getElementById('btn-close-workout');
+const workoutModal = document.getElementById('workout-modal');
+
+// 2. CREATE THE FUNCTIONS (Logica de execuție)
+function openWorkoutModal() {
+    // Removes the class that hides the modal
+    workoutModal.classList.remove('modal-hidden');
+    // Prevents the body from scrolling while modal is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeWorkoutModal() {
+    // Adds the hiding class back
+    workoutModal.classList.add('modal-hidden');
+    // Restores body scrolling ONLY if the Biomechanics modal is also closed
+    if (modalOverlay.classList.contains('modal-hidden')) {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+
+// 3. ATTACH EVENT LISTENERS (Trăgaciul)
+// When the buttons are clicked, run the functions
+btnOpen.addEventListener('click', openWorkoutModal);
+btnClose.addEventListener('click', closeWorkoutModal);
+
+// Optional: Close modal if user clicks outside the panel (on the dark overlay)
+workoutModal.addEventListener('click', function (event) {
+    if (event.target === workoutModal) {
+        closeWorkoutModal();
+    }
+});
+
 // Defines the exact steps to CLOSE the modal as a single reusable macro
 const closeModal = () => {
     modalOverlay.classList.add('modal-hidden');
+    // Only restore scroll if the workout modal is also closed
+    if (workoutModal.classList.contains('modal-hidden')) {
+        document.body.style.overflow = 'auto';
+    }
     console.log('[SYS-LOG] Modal Closed.');
 };
 
@@ -27,8 +67,11 @@ const openModal = (title, data) => {
     modalTitle.innerText = title;
     modalBodyText.innerText = data;
     modalOverlay.classList.remove('modal-hidden');
+    // Lock scroll
+    document.body.style.overflow = 'hidden';
     console.log(`[SYS-LOG] Modal Opened for: ${title}`);
 };
+
 
 // ------------------------------------------
 // H2 4.3 EVENT LISTENERS (THE TRIGGERS)
@@ -37,16 +80,22 @@ const openModal = (title, data) => {
 // 1. OPEN SIGNAL
 detailButtons.forEach(button => {
     button.addEventListener('click', (event) => {
+        // Skip if this is the workout protocol button
+        if (button.id === 'btn-open-workout') return;
+
         event.preventDefault();
-        
+
         const exerciseCard = event.target.closest('.exercise-card');
+        if (!exerciseCard) return;
+
         const exerciseTitle = exerciseCard.querySelector('.exercise-title').innerText;
         const biomechanicsData = button.dataset.biomechanics || "System analysis pending...";
-        
+
         // Calls the macro function and passes the extracted data
         openModal(exerciseTitle, biomechanicsData);
     });
 });
+
 
 // 2. CLOSE SIGNAL: The 'X' Button
 // Instead of writing a new function, we just point to the closeModal macro
@@ -96,9 +145,10 @@ volumeSlider.addEventListener('input', (event) => {
 
 // 5. Global Autoplay Triger (Fires only once on first interaction)
 document.addEventListener('click', (event) => {
-     if (bgAudio.paused) {
+    if (bgAudio.paused) {
         bgAudio.play();
         btnAudioToggle.innerText = 'PAUSE SOUND';
         console.log('[SYS-LOG] Auto-Play Triggered by First Interaction');
     }
 }, { once: true });
+

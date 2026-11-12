@@ -1,0 +1,63 @@
+/* ========================================== */
+/* H1 DISTRICT 3: COMMAND CENTER STYLES       */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* H2 3.0 DISTRICT THEME (OFF-ROAD & NATURE)  */
+/* ------------------------------------------ */
+/* Overrides global variables with District 3 specific colors */
+body {
+    /* Color Palette */
+    --color-bg-forest: #121a16;   /* Deep shadows */
+    --color-box-stone: #222a25;   /* Bento box background */
+    --color-accent-moss: #88a07c; /* Primary highlight */
+    --color-accent-trail: #c7713f;/* Secondary highlight (Sunset/Mud) */
+    --color-text-bone: #e0e6e2;   /* Clean readable text */
+    --color-border-earth: #323d36;/* Subtle box borders */
+
+    /* Applies the base theme to the page background */
+    background: radial-gradient(circle at center top, #1e2621 0%, var(--color-bg-forest) 100%);
+    background-attachment: fixed;
+    color: var(--color-text-bone);
+}
+/* ------------------------------------------ */
+/* H2 3.1 THE BENTO WRAPPER (GRID CONTAINER)  */
+/* ------------------------------------------ */
+.bento-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 40px 5%;
+}
+/* ------------------------------------------ */
+/* H2 3.2 BENTO BOX BASE (THE MODULES)        */
+/* ------------------------------------------ */
+.bento-box {
+    background-color: var(--color-box-stone);
+    border: 1px solid var(--color-border-earth);
+    border-radius: 12px;
+    padding: 25px;
+    color: var(--color-text-bone);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+/* ------------------------------------------ */
+/* H2 3.3 BENTO MODULE ROUTING                */
+/* ------------------------------------------ */
+.box-metrics {
+    grid-column: 1 / -1;
+}
+.box-tracker {
+    grid-row: span 2;
+}
+/* ------------------------------------------ */
+/* H2 3.4 MOBILE CALIBRATION                  */
+/* ------------------------------------------ */
+@media (max-width: 768px) {
+    .bento-wrapper{
+        grid-template-columns: 1fr;
+        padding: 20px 5%;
+    }
+}
